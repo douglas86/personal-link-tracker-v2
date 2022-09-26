@@ -1,6 +1,6 @@
 import { SessionProvider } from "next-auth/react";
 
-import Layout from "../components/templates/Layout";
+import Layout from "../src/components/templates/Layout";
 
 import "../styles/globals.css";
 import "bootstrap/dist/css/bootstrap.min.css";
