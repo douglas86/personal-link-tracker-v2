@@ -1,28 +1,25 @@
 import NextAuth from "next-auth/next";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
+import prisma from "../../../src/lib/prisma";
 
-import GithubProvider from "next-auth/providers/github";
-import GoogleProvider from "next-auth/providers/google";
-import EmailProvider from "next-auth/providers/email";
+import Github from "next-auth/providers/github";
+import Google from "next-auth/providers/google";
+import Email from "next-auth/providers/email";
 
-import prisma from "../src/lib/Prisma";
+import { keys } from "../../../src/lib/keys";
+
+const { secret } = keys;
+const { email_server, email_client } = keys;
+const { google_client, google_secret } = keys;
+const { github_client, github_secret } = keys;
 
 export default NextAuth({
   providers: [
-    EmailProvider({
-      server: process.env.NEXTAUTH_EMAIL_SERVER,
-      from: process.env.NEXTAUTH_EMAIL_FROM,
-    }),
-    GoogleProvider({
-      clientId: process.env.NEXTAUTH_GOOGLE_CLIENT_ID,
-      clientSecret: process.env.NEXTAUTH_GOOGLE_CLIENT_SECRET,
-    }),
-    GithubProvider({
-      clientId: process.env.NEXTAUTH_GITHUB_ID,
-      clientSecret: process.env.NEXTAUTH_GITHUB_SECRET,
-    }),
+    Email({ server: email_server, from: email_client }),
+    Google({ clientId: google_client, clientSecret: google_secret }),
+    Github({ clientId: github_client, clientSecret: github_secret }),
   ],
   debug: process.env.NODE_ENV === "development",
   adapter: PrismaAdapter(prisma),
-  secret: process.env.SECRET,
+  secret,
 });

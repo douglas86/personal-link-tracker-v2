@@ -1,4 +1,6 @@
-import { PrismaClient } from "@prisma/client/scripts/default-index";
+// noinspection ES6CheckImport
+
+import { PrismaClient } from "@prisma/client";
 
 let prisma;
 
