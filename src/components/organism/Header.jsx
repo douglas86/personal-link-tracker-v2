@@ -5,9 +5,11 @@ import { images, buttons } from "../atom";
 import { links } from "../../utils/index";
 import home from "../../assets/Images/home.jpeg";
 import { signIn, signOut, useSession } from "next-auth/react";
+import useAppContext from "../../hooks/useAppContext";
 
 const Header = () => {
   const { data: session } = useSession();
+  const { state } = useAppContext();
 
   return (
     <>
@@ -15,7 +17,11 @@ const Header = () => {
         <Container>
           <NavbarBrand>{links("/", <a>{images(home, 30, 30)}</a>)}</NavbarBrand>
           <Nav className="ml-auto">
-            {links("/dashboard", <Nav.Link>Dashboard</Nav.Link>)}
+            {state &&
+              links(
+                `/${state.dataReducers.role}`,
+                <Nav.Link>Dashboard</Nav.Link>
+              )}
             {links("/user/link/create", <Nav.Link>Create a Link</Nav.Link>)}
             {!session
               ? buttons("outline-primary", "SignIn", () => signIn())

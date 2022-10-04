@@ -1,8 +1,8 @@
 import useSWR from "swr";
 
 const useFetch = (endpoint) => {
-  const fetcher = () => fetch(endpoint).then((res) => res.json());
-  const { data } = useSWR(endpoint, fetcher);
+  const fetcher = () => fetch("/api" + endpoint).then((res) => res.json());
+  const { data } = useSWR("/api" + endpoint, fetcher);
   return data ? data.data : undefined;
 };
 
