@@ -1,3 +1,7 @@
+.div {
+  display: flex;
+}
+
 .form {
   display: block;
   padding: 2%;

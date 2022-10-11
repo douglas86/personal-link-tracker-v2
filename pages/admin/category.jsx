@@ -14,7 +14,7 @@ const category = () => {
       {role ? (
         <>
           {titles("Create a category")}
-          <Forms inputsArray={inputsArray} />
+          <Forms inputsArray={inputsArray} showImageInput={true} />
         </>
       ) : (
         <h1>You are not allowed here</h1>
