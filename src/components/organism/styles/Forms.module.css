@@ -1,0 +1,21 @@
+.form {
+  display: block;
+  padding: 2%;
+}
+
+.input {
+  width: 50%;
+  text-align: center;
+  margin: 0.5rem 25%;
+  border-radius: 5px;
+}
+
+.p {
+  color: red;
+  text-align: center;
+  margin: 0.5rem 25%;
+}
+
+.button {
+  margin: 0.5% 25%;
+}

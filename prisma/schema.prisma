@@ -58,9 +58,8 @@ model VerificationToken {
 
 model Category {
   id          String   @id @default(cuid())
-  title       String
+  title       String @unique
   description String
-  s3BucketKey String
   image       String
   createdAt   DateTime @default(now())
 }

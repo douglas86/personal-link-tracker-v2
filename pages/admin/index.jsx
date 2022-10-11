@@ -1,8 +1,16 @@
+import { buttons, titles } from "../../src/components/atom";
+import { links } from "../../src/utils";
+import { Container } from "react-bootstrap";
+
 const index = () => {
   return (
-    <div>
-      <h1>Admin</h1>
-    </div>
+    <Container>
+      {titles("Admin Dashboard")}
+      {links(
+        "/admin/category",
+        buttons("outline-success", "Create a Category")
+      )}
+    </Container>
   );
 };
 

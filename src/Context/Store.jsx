@@ -1,7 +1,5 @@
 import { createContext, useMemo, useReducer } from "react";
-import { rootReducers } from "./rootReducers";
-
-const initialState = { dataReducers: {} };
+import { rootReducers, initialState } from "./helpers";
 
 export const Context = createContext(initialState);
 

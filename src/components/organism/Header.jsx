@@ -1,6 +1,6 @@
 import { Container, Navbar, Nav, NavbarBrand } from "react-bootstrap";
 
-import { images, buttons } from "../atom";
+import { img, buttons } from "../atom";
 
 import { links } from "../../utils/index";
 import home from "../../assets/Images/home.jpeg";
@@ -15,7 +15,7 @@ const Header = () => {
     <>
       <Navbar bg="light" variant="light">
         <Container>
-          <NavbarBrand>{links("/", <a>{images(home, 30, 30)}</a>)}</NavbarBrand>
+          <NavbarBrand>{links("/", <a>{img(home, 30, 30)}</a>)}</NavbarBrand>
           <Nav className="ml-auto">
             {state &&
               links(
