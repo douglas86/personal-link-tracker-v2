@@ -1,4 +1,4 @@
-import "../styles/globals.css";
+import "../styles/Global/globals.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { SessionProvider } from "next-auth/react";
 import Layout from "../src/components/templates/Layout";

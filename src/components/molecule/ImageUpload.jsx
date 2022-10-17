@@ -2,7 +2,7 @@ import ImageUploading from "react-images-uploading";
 
 import useAppContext from "../../hooks/useAppContext";
 
-import styles from "./styles/ImageUpload.module.css";
+import styles from "../../../styles/components/molecule/ImageUpload.module.css";
 import Handlers from "../../Helpers/components/Handlers";
 
 const ImageUpload = () => {
