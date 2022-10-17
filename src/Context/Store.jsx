@@ -1,5 +1,5 @@
 import { createContext, useMemo, useReducer } from "react";
-import { rootReducers, initialState } from "./helpers";
+import { rootReducers, initialState } from "../Helpers/Context";
 
 export const Context = createContext(initialState);
 
