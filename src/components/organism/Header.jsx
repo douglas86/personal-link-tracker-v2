@@ -1,8 +1,7 @@
 import { Container, Navbar, Nav, NavbarBrand } from "react-bootstrap";
 
-import { img, buttons } from "../atom";
+import { img, buttons, links } from "../atom";
 
-import { links } from "../../utils/index";
 import home from "../../assets/Images/home.jpeg";
 import { signIn, signOut, useSession } from "next-auth/react";
 import useAppContext from "../../hooks/useAppContext";

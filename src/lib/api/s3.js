@@ -1,7 +1,8 @@
 import AWS from "aws-sdk";
 import { keys } from "./keys";
 
-const { aws_accessKey, aws_secretKey, aws_region } = keys;
+const { aws } = keys;
+const { aws_accessKey, aws_secretKey, aws_region } = aws;
 
 AWS.config.update({
   accessKeyId: aws_accessKey,

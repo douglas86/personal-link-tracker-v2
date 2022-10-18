@@ -8,8 +8,8 @@ const Layout = ({ children }) => {
   const { dispatch } = useAppContext();
 
   useEffect(() => {
-    if (userData) {
-      dispatch({ type: "fetching user data", userData: userData[0] });
+    if (userData && userData.length !== 0) {
+      dispatch({ type: "FETCHING_USER_DATA", userData: userData[0] });
     }
   }, [userData]);
 

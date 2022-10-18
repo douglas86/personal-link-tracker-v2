@@ -1,5 +1,4 @@
-import { buttons, titles } from "../../src/components/atom";
-import { links } from "../../src/utils";
+import { buttons, titles, links } from "../../src/components/atom";
 import { Container } from "react-bootstrap";
 
 const index = () => {

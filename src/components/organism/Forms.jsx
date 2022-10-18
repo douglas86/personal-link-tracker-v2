@@ -4,7 +4,7 @@ import { Button } from "react-bootstrap";
 import ImageUpload from "../molecule/ImageUpload";
 import DisplayImage from "../molecule/DisplayImage";
 
-import Handlers from "../../Helpers/components/Handlers";
+import HandleCRUD from "../../Handlers/HandleCRUD";
 import useAppContext from "../../hooks/useAppContext";
 
 import styles from "../../../styles/components/organism/Forms.module.css";
@@ -13,7 +13,7 @@ import { useEffect } from "react";
 const Forms = ({ inputsArray, showImageInput = false }) => {
   const { state } = useAppContext();
   const { formReducers } = state;
-  const { handleOnSubmit } = Handlers();
+  const { handleOnSubmit } = HandleCRUD();
 
   const {
     register,

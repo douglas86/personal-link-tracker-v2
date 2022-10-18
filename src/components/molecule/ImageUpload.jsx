@@ -3,11 +3,11 @@ import ImageUploading from "react-images-uploading";
 import useAppContext from "../../hooks/useAppContext";
 
 import styles from "../../../styles/components/molecule/ImageUpload.module.css";
-import Handlers from "../../Helpers/components/Handlers";
+import HandleCRUD from "../../Handlers/HandleCRUD";
 
 const ImageUpload = () => {
   const { state } = useAppContext();
-  const { handleImageChange } = Handlers();
+  const { handleImageChange } = HandleCRUD();
   const { formReducers } = state;
   const maxNumber = 1;
 

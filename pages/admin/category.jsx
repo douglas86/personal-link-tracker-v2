@@ -2,12 +2,17 @@ import Forms from "../../src/components/organism/Forms";
 import { titles } from "../../src/components/atom";
 
 import useAppContext from "../../src/hooks/useAppContext";
+import { useEffect } from "react";
 
 const category = () => {
-  const { state } = useAppContext();
+  const { state, dispatch } = useAppContext();
 
   const role = state && state.dataReducers.role === "admin";
   const inputsArray = ["title", "description"];
+
+  useEffect(() => {
+    dispatch({ type: "REMOVE_IMAGE_OBJECT" });
+  }, []);
 
   return (
     <div>
