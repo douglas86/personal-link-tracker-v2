@@ -60,7 +60,6 @@ model Category {
   id          String   @id @default(cuid())
   title       String @unique
   description String
-  image       String
   createdAt   DateTime @default(now())
 }
 

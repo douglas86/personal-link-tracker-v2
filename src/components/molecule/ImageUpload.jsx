@@ -19,7 +19,7 @@ const ImageUpload = () => {
         onChange={handleImageChange}
         maxNumber={maxNumber}
         dataURLKey="data_url"
-        acceptType={["jpg", "png"]}
+        acceptType={["png"]}
       >
         {({ onImageUpload, isDragging, dragProps }) => (
           <div>

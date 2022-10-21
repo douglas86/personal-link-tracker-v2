@@ -3,9 +3,11 @@ import Alert from "react-bootstrap/Alert";
 import { Container } from "react-bootstrap";
 
 import useAppContext from "../src/hooks/useAppContext";
+import CategoryCards from "../src/components/organism/CategoryCards";
 
 const Home = () => {
   const { state, dispatch } = useAppContext();
+
   const { alertsReducers } = state;
 
   useEffect(() => {
@@ -21,7 +23,7 @@ const Home = () => {
           {alertsReducers.message}
         </Alert>
       ) : null}
-      <h1>Home page</h1>
+      <CategoryCards />
     </Container>
   );
 };

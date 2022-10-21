@@ -49,7 +49,11 @@ const Forms = ({ inputsArray, showImageInput = false }) => {
             </div>
           ))}
           {showImageInput ? <ImageUpload /> : null}
-          {errors.image && <p className={styles.p}>images are required</p>}
+          {errors.image && (
+            <p className={styles.p}>
+              images are required, only accepts png files
+            </p>
+          )}
           <Button type="submit" className={styles.button} variant="primary">
             Submit
           </Button>

@@ -6,12 +6,13 @@ import Github from "next-auth/providers/github";
 import Google from "next-auth/providers/google";
 import Email from "next-auth/providers/email";
 
-import { keys } from "../../../src/lib/api/keys";
+import { keys } from "../../../src/lib/api";
 
-const { secret } = keys;
-const { email_server, email_client } = keys;
-const { google_client, google_secret } = keys;
-const { github_client, github_secret } = keys;
+const { email, google, github } = keys;
+
+const { secret, email_server, email_client } = email;
+const { google_client, google_secret } = google;
+const { github_client, github_secret } = github;
 
 export default NextAuth({
   providers: [
