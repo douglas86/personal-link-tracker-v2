@@ -17,6 +17,7 @@ const Header = () => {
           <NavbarBrand>{links("/", <a>{img(home, 30, 30)}</a>)}</NavbarBrand>
           <Nav className="ml-auto">
             {state &&
+              session &&
               links(
                 `/${state.dataReducers.role}`,
                 <Nav.Link>Dashboard</Nav.Link>
