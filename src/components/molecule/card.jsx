@@ -1,4 +1,4 @@
-import { img, links, titles } from "../atom";
+import { img, links, heading } from "../atom";
 import { Card } from "react-bootstrap";
 
 export const card = ({ title, image }) => (
@@ -12,7 +12,7 @@ export const card = ({ title, image }) => (
     {links(
       `/links/${title}`,
       <a style={{ textDecoration: "none" }}>
-        <Card.Header>{titles(title)}</Card.Header>
+        <Card.Header>{heading(title)}</Card.Header>
         <div
           style={{
             margin: "3% 25%",
