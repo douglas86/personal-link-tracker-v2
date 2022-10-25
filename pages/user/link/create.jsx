@@ -15,6 +15,7 @@ const create = () => {
         medium: { defaultValue: "Book", array: ["Book", "Video"] },
       },
       inputArray: ["title", "url"],
+      endpoint: "/links",
     });
   }, [dispatch]);
 

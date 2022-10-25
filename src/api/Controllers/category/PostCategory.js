@@ -1,7 +1,6 @@
 import { params } from "../../../Helpers/api/s3/params";
 import { s3 } from "../../../lib/api";
-import { then } from "../../utils/then";
-import { caught } from "../../utils/caught";
+import { caught, then } from "../../utils";
 
 const PostCategory = async (res, data) => {
   const { title, description, image } = data;
