@@ -14,3 +14,9 @@
 .button {
   margin: 1%;
 }
+
+.p {
+  color: red;
+  text-align: center;
+  margin: 0.5rem 25%;
+}

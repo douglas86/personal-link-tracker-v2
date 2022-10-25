@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { Button } from "react-bootstrap";
 
@@ -8,7 +9,6 @@ import HandleCRUD from "../../Handlers/HandleCRUD";
 import useAppContext from "../../hooks/useAppContext";
 
 import styles from "../../../styles/components/organism/Forms.module.css";
-import { useEffect } from "react";
 
 const Forms = ({ inputsArray, showImageInput = false }) => {
   const { state } = useAppContext();

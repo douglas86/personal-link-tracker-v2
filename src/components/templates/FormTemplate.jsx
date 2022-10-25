@@ -9,8 +9,11 @@ import styles from "../../../styles/components/templates/FormTemplate.module.css
 import useAppContext from "../../hooks/useAppContext";
 import FormInputs from "../organism/FormInputs";
 import Handlers from "../../Handlers/HandleCRUD";
+import ImageUpload from "../molecule/ImageUpload";
+import DisplayImage from "../molecule/DisplayImage";
+import { useEffect } from "react";
 
-const FormTemplate = ({ checkbox }) => {
+const FormTemplate = ({ checkbox, uploadImage = false }) => {
   const { state } = useAppContext();
   const { formReducers } = state;
   const { radioBtn, inputArray } = formReducers;
@@ -20,12 +23,18 @@ const FormTemplate = ({ checkbox }) => {
   const {
     register,
     handleSubmit,
+    setValue,
     formState: { errors },
   } = useForm({
     defaultValues: {
       checkbox: [],
     },
   });
+
+  useEffect(() => {
+    setValue("image", formReducers.image);
+    !formReducers.image && register("image", { required: true });
+  }, [formReducers, register, setValue]);
 
   return (
     <Container>
@@ -53,9 +62,18 @@ const FormTemplate = ({ checkbox }) => {
             {inputArray ? (
               <FormInputs register={register} errors={errors} />
             ) : null}
+            {uploadImage ? <ImageUpload /> : null}
+            {uploadImage && errors.image && (
+              <p className={styles.p}>
+                images are required, only accepts png files
+              </p>
+            )}
             <Button type="submit" className={styles.button}>
               Submit
             </Button>
+          </div>
+          <div style={formReducers.image ? { width: "25%" } : null}>
+            {formReducers.image ? <DisplayImage /> : null}
           </div>
         </div>
       </form>
