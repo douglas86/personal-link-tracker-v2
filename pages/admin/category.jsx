@@ -1,5 +1,5 @@
 import Forms from "../../src/components/organism/Forms";
-import { titles } from "../../src/components/atom";
+import { heading } from "../../src/components/atom";
 
 import useAppContext from "../../src/hooks/useAppContext";
 import { useEffect } from "react";
@@ -18,7 +18,7 @@ const category = () => {
     <div>
       {role ? (
         <>
-          {titles("Create a category")}
+          {heading("Create a category")}
           <Forms inputsArray={inputsArray} showImageInput={true} />
         </>
       ) : (
