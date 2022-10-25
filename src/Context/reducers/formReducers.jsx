@@ -11,7 +11,7 @@ export const formReducers = (state, action) => {
     case "REMOVE_IMAGE_OBJECT":
       return delete state.image;
     case "POPULATE_FORM_DATA":
-      return { ...state, radioBtn, inputArray, endpoint };
+      return { ...state, radioBtn, inputArray, endpoint, image };
     case "CHANGE_RADIO_DEFAULT":
       return {
         ...state,

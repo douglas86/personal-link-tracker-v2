@@ -5,7 +5,6 @@ import { useEffect } from "react";
 const create = () => {
   const { state, dispatch } = useAppContext();
   const { dataReducers } = state;
-  const array = ["title", "url"];
 
   useEffect(() => {
     dispatch({
@@ -16,12 +15,13 @@ const create = () => {
       },
       inputArray: ["title", "url"],
       endpoint: "/links",
+      image: null,
     });
   }, [dispatch]);
 
   return (
     <div>
-      <FormTemplate array={array} checkbox={dataReducers.categoryData} />
+      <FormTemplate checkbox={dataReducers.categoryData} />
     </div>
   );
 };

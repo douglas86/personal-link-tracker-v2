@@ -24,6 +24,7 @@ const FormTemplate = ({ checkbox, uploadImage = false }) => {
     register,
     handleSubmit,
     setValue,
+    reset,
     formState: { errors },
   } = useForm({
     defaultValues: {
@@ -33,7 +34,9 @@ const FormTemplate = ({ checkbox, uploadImage = false }) => {
 
   useEffect(() => {
     setValue("image", formReducers.image);
-    !formReducers.image && register("image", { required: true });
+    formReducers.image === null
+      ? reset()
+      : register("image", { required: true });
   }, [formReducers, register, setValue]);
 
   return (

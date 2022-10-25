@@ -6,7 +6,6 @@ const Handlers = () => {
   const { formReducers } = state;
   const { endpoint } = formReducers;
 
-  // const handleOnSubmit = (data) => Posting("/category", data, dispatch);
   const handleOnSubmit = (data) => posting(endpoint, data, dispatch);
 
   const handleImageChange = (imageList) =>
