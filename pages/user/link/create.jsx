@@ -5,20 +5,22 @@ import { useEffect } from "react";
 const create = () => {
   const { state, dispatch } = useAppContext();
   const { dataReducers } = state;
+  const array = ["title", "url"];
 
   useEffect(() => {
     dispatch({
-      type: "ADD_RADIO_BUTTONS",
+      type: "POPULATE_FORM_DATA",
       radioBtn: {
         types: { defaultValue: "Free", array: ["Free", "Paid"] },
         medium: { defaultValue: "Book", array: ["Book", "Video"] },
       },
+      inputArray: ["title", "url"],
     });
   }, [dispatch]);
 
   return (
     <div>
-      <FormTemplate checkbox={dataReducers.categoryData} />
+      <FormTemplate array={array} checkbox={dataReducers.categoryData} />
     </div>
   );
 };

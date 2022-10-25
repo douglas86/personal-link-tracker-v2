@@ -1,15 +1,18 @@
 import { useForm } from "react-hook-form";
-import { Container } from "react-bootstrap";
+import { Button, Container } from "react-bootstrap";
 
 import ShowCheckbox from "../organism/ShowCheckbox";
 import ShowRadio from "../organism/ShowRadio";
 
+import styles from "../../../styles/components/templates/FormTemplate.module.css";
+
 import useAppContext from "../../hooks/useAppContext";
+import FormInputs from "../organism/FormInputs";
 
 const FormTemplate = ({ checkbox }) => {
   const { state } = useAppContext();
   const { formReducers } = state;
-  const { radioBtn } = formReducers;
+  const { radioBtn, inputArray } = formReducers;
 
   const {
     register,
@@ -25,9 +28,9 @@ const FormTemplate = ({ checkbox }) => {
 
   return (
     <Container>
-      <div style={{ display: "flex", margin: "2%" }}>
-        <div style={{ width: "25%" }}>
-          <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <div className={styles.flex}>
+          <div className={styles.leftSide}>
             <section>
               {checkbox ? (
                 <ShowCheckbox
@@ -44,14 +47,17 @@ const FormTemplate = ({ checkbox }) => {
                 <ShowRadio register={register} />
               ) : null}
             </section>
-
-            <input type="submit" />
-          </form>
+          </div>
+          <div className={styles.rightSide}>
+            {inputArray ? (
+              <FormInputs register={register} errors={errors} />
+            ) : null}
+            <Button type="submit" className={styles.button}>
+              Submit
+            </Button>
+          </div>
         </div>
-        <div style={{ width: "75%" }}>
-          <h1>Right</h1>
-        </div>
-      </div>
+      </form>
     </Container>
   );
 };

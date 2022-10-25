@@ -1,6 +1,7 @@
 export const formReducers = (state, action) => {
-  const { type, data, image, radioBtn, radioName, array, defaultValue } =
-    action;
+  const { type, data, image } = action;
+  const { radioBtn, radioName, array } = action;
+  const { defaultValue, inputArray } = action;
 
   switch (type) {
     case "FORM_INPUTS_DATA":
@@ -9,8 +10,8 @@ export const formReducers = (state, action) => {
       return { ...state, image };
     case "REMOVE_IMAGE_OBJECT":
       return delete state.image;
-    case "ADD_RADIO_BUTTONS":
-      return { ...state, radioBtn };
+    case "POPULATE_FORM_DATA":
+      return { ...state, radioBtn, inputArray };
     case "CHANGE_RADIO_DEFAULT":
       return {
         ...state,
