@@ -7,15 +7,11 @@ const create = () => {
   const { dataReducers } = state;
 
   useEffect(() => {
+    dispatch({ type: "REMOVE_IMAGE_OBJECT" });
     dispatch({
       type: "POPULATE_FORM_DATA",
-      radioBtn: {
-        types: { defaultValue: "Free", array: ["Free", "Paid"] },
-        medium: { defaultValue: "Book", array: ["Book", "Video"] },
-      },
       inputArray: ["title", "url"],
       endpoint: "/links",
-      image: null,
     });
   }, [dispatch]);
 

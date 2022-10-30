@@ -12,11 +12,14 @@ import Handlers from "../../Handlers/HandleCRUD";
 import ImageUpload from "../molecule/ImageUpload";
 import DisplayImage from "../molecule/DisplayImage";
 import { useEffect } from "react";
+import { useSession } from "next-auth/react";
 
 const FormTemplate = ({ checkbox, uploadImage = false }) => {
   const { state } = useAppContext();
   const { formReducers } = state;
   const { inputArray } = formReducers;
+
+  const { data: session } = useSession();
 
   const { handleOnSubmit } = Handlers();
 
@@ -80,7 +83,7 @@ const FormTemplate = ({ checkbox, uploadImage = false }) => {
                 images are required, only accepts png files
               </p>
             )}
-            <Button type="submit" className={styles.button}>
+            <Button type="submit" className={styles.button} disabled={!session}>
               Submit
             </Button>
           </div>
