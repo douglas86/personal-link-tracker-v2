@@ -1,0 +1,21 @@
+.flex {
+  display: flex;
+}
+
+.flexWidth {
+  display: flex;
+  width: 50%;
+}
+
+.width {
+  width: 50%;
+}
+
+.fontColor {
+  color: red;
+}
+
+.textAlign {
+  width: 50%;
+  text-align: right;
+}

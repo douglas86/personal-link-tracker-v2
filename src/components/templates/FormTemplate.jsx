@@ -61,7 +61,7 @@ const FormTemplate = ({ checkbox, uploadImage = false }) => {
             <section>
               <ShowRadio
                 titles="types"
-                array={["Free", "Pain"]}
+                array={["Free", "Paid"]}
                 defaultValue="Free"
                 register={register}
               />
