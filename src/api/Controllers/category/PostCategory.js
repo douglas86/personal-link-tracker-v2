@@ -11,7 +11,7 @@ const PostCategory = async (res, data) => {
         .upload(params(title, image))
         .promise()
         .then(async () => {
-          return await then(res, "Category successfully saved");
+          return await then(res, "Slug successfully saved");
         })
         .catch((err) => caught(res, err));
     })

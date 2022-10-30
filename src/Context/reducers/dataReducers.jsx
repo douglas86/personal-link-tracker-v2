@@ -1,5 +1,6 @@
 export const dataReducers = (state, action) => {
   const { type, userData, categoryData } = action;
+  const { len, pagination } = action;
 
   switch (type) {
     case "FETCHING_INITIAL_DATA":
@@ -9,6 +10,8 @@ export const dataReducers = (state, action) => {
         ...state,
         category: [],
       };
+    case "UPDATING_CATEGORY_PAGE":
+      return { ...state, len, pagination };
     default:
       return state;
   }

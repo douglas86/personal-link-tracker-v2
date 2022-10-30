@@ -5,10 +5,7 @@ const index = () => {
   return (
     <Container>
       {heading("Admin Dashboard")}
-      {links(
-        "/admin/category",
-        buttons("outline-success", "Create a Category")
-      )}
+      {links("/admin/category", buttons("outline-success", "Create a Slug"))}
     </Container>
   );
 };
