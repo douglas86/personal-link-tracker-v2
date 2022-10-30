@@ -16,7 +16,7 @@ import { useEffect } from "react";
 const FormTemplate = ({ checkbox, uploadImage = false }) => {
   const { state } = useAppContext();
   const { formReducers } = state;
-  const { radioBtn, inputArray } = formReducers;
+  const { inputArray } = formReducers;
 
   const { handleOnSubmit } = Handlers();
 
@@ -56,9 +56,18 @@ const FormTemplate = ({ checkbox, uploadImage = false }) => {
             </section>
 
             <section>
-              {radioBtn && Object.keys(radioBtn).length !== 0 ? (
-                <ShowRadio register={register} />
-              ) : null}
+              <ShowRadio
+                titles="types"
+                array={["Free", "Pain"]}
+                defaultValue="Free"
+                register={register}
+              />
+              <ShowRadio
+                titles="medium"
+                array={["Books", "Video"]}
+                defaultValue="Books"
+                register={register}
+              />
             </section>
           </div>
           <div className={styles.rightSide}>
