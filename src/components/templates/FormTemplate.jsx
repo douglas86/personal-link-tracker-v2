@@ -12,11 +12,14 @@ import Handlers from "../../Handlers/HandleCRUD";
 import ImageUpload from "../molecule/ImageUpload";
 import DisplayImage from "../molecule/DisplayImage";
 import { useEffect } from "react";
+import { useSession } from "next-auth/react";
 
 const FormTemplate = ({ checkbox, uploadImage = false }) => {
   const { state } = useAppContext();
   const { formReducers } = state;
-  const { radioBtn, inputArray } = formReducers;
+  const { inputArray } = formReducers;
+
+  const { data: session } = useSession();
 
   const { handleOnSubmit } = Handlers();
 
@@ -56,9 +59,18 @@ const FormTemplate = ({ checkbox, uploadImage = false }) => {
             </section>
 
             <section>
-              {radioBtn && Object.keys(radioBtn).length !== 0 ? (
-                <ShowRadio register={register} />
-              ) : null}
+              <ShowRadio
+                titles="types"
+                array={["Free", "Paid"]}
+                defaultValue="Free"
+                register={register}
+              />
+              <ShowRadio
+                titles="medium"
+                array={["Books", "Video"]}
+                defaultValue="Books"
+                register={register}
+              />
             </section>
           </div>
           <div className={styles.rightSide}>
@@ -71,7 +83,7 @@ const FormTemplate = ({ checkbox, uploadImage = false }) => {
                 images are required, only accepts png files
               </p>
             )}
-            <Button type="submit" className={styles.button}>
+            <Button type="submit" className={styles.button} disabled={!session}>
               Submit
             </Button>
           </div>

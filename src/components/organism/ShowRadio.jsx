@@ -1,36 +1,23 @@
 import { labels, title } from "../atom";
 
-import useAppContext from "../../hooks/useAppContext";
+import { useState } from "react";
 
-const ShowRadio = ({ register }) => {
-  const { state, dispatch } = useAppContext();
-  const { formReducers } = state;
-  const { radioBtn } = formReducers;
+const ShowRadio = ({ titles, array, defaultValue, register }) => {
+  const [state, setState] = useState(defaultValue);
 
   return (
     <>
-      {Object.entries(radioBtn).map(([key, values]) => (
-        <div key={key}>
-          {labels("text-muted ml-4", title(key))}
-          {values.array.map((list) => (
-            <div key={list}>
-              <input
-                {...register(key, { required: true })}
-                type="radio"
-                value={list}
-                checked={list === values.defaultValue}
-                onChange={(e) =>
-                  dispatch({
-                    type: "CHANGE_RADIO_DEFAULT",
-                    radioName: key,
-                    array: values.array,
-                    defaultValue: e.target.value,
-                  })
-                }
-              />{" "}
-              <label>{list}</label>
-            </div>
-          ))}
+      {labels("text-muted ml-4", title(titles))}
+      {array.map((items) => (
+        <div key={items}>
+          <input
+            {...register(titles, { required: true })}
+            type="radio"
+            value={items}
+            checked={items === state}
+            onChange={(e) => setState(e.target.value)}
+          />{" "}
+          <label>{items}</label>
         </div>
       ))}
     </>

@@ -12,6 +12,8 @@ export const dataReducers = (state, action) => {
       };
     case "UPDATING_CATEGORY_PAGE":
       return { ...state, len, pagination };
+    case "UPDATE_PAGINATION":
+      return { ...state, pagination };
     default:
       return state;
   }
